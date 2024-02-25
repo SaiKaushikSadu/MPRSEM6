@@ -1,15 +1,10 @@
 # MPRSEM6
 React Native App - Personalized app for student
 
-#To start Flask app
-Go to the flask directory 
-#to activate venv
-#run 
-venv\Scripts\activate.ps1 
-run python app.py
 #To start Flask app <br />
-Go to the flask directory  <br />
-run venv\Scripts\activate.ps1 #to activate venv <br />
+Go to the flask directory  <br /> 
+#to activate venv run <br />
+venv\Scripts\activate.ps1 
 run python app.py <br />
 
 #To start React Native App <br />

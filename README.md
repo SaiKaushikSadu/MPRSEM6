@@ -7,8 +7,12 @@ Go to the flask directory
 #run 
 venv\Scripts\activate.ps1 
 run python app.py
+#To start Flask app <br />
+Go to the flask directory  <br />
+run venv\Scripts\activate.ps1 #to activate venv <br />
+run python app.py <br />
 
-#To start React Native App
-npx expo start
+#To start React Native App <br />
+npx expo start <br />
 
-#Install expo app in mobile and scan the qr code
+#Install expo app in mobile and scan the qr code <br />

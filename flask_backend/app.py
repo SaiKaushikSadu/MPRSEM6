@@ -27,6 +27,7 @@ def signup():
     name=body.get('name')
     phone=body.get('phone')
     email=body.get('email')
+    password=body.get('password')
     collegename=body.get('collegename')
     collegeemail=body.get('collegeemail')
     collegeaddress=body.get('collegeaddress')
@@ -46,6 +47,7 @@ def signup():
             "name":name,
             "phone":phone,
             "email":email,
+            "password":password,
             "collegename": collegename,
             "collegeemail": collegeemail,
             "collegeaddress": collegeaddress,

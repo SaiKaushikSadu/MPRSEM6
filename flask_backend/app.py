@@ -24,40 +24,49 @@ CORS(app)
 @app.route("/signup", methods=['POST'])
 def signup():
     body=request.json
-    name=body.get('name')
+    fname=body.get('fname')
+    lname=body.get('lname')
     phone=body.get('phone')
     email=body.get('email')
     password=body.get('password')
+
     collegename=body.get('collegename')
+    branch=body.get('branch')
+    rollno=body.get('rollno')
+    prn=body.get('prn')
     collegeemail=body.get('collegeemail')
-    collegeaddress=body.get('collegeaddress')
+
     cgpa=body.get('cgpa')
     percentage=body.get('percentage')
+
     linkedin=body.get('linkedin')
     github=body.get('github')
-    instagram=body.get('instagram')
-    twitter=body.get('twitter')
-    reddit=body.get('reddit')
+    codechef=body.get('codechef')
+    codeforces=body.get('codeforces')
+    leetcode=body.get('leetcode')
     discord=body.get('discord')
     date=datetime.now().date()
 
     try:
         db['student'].create_index([('phone', pymongo.ASCENDING)], unique=True)
         result = db['student'].insert_one({
-            "name":name,
+            "fname":fname,
+            "lname":lname,
             "phone":phone,
             "email":email,
             "password":password,
             "collegename": collegename,
+            "branch": branch,
+            "rollno": rollno,
+            "rollno": prn,
             "collegeemail": collegeemail,
-            "collegeaddress": collegeaddress,
             "cgpa": cgpa,
             "percentage": percentage,
             "linkedin": linkedin,
             "github": github,
-            "instagram": instagram,
-            "twitter": twitter,
-            "reddit": reddit,
+            "codechef": codechef,
+            "codeforces": codeforces,
+            "leetcode": leetcode,
             "discord": discord
         })
         return jsonify({
@@ -80,8 +89,15 @@ def timetable():
         
         reader = easyocr.Reader(['en'])
         result = reader.readtext(image_data_bytes)
+        count = 0
         for (bbox, text, prob) in result:
-            print(f'Text: {text}, Probability: {prob}')
+            print(f'{text} ', end="")
+            count += 1
+            if count % 7 == 0:
+                print()
+        # for (bbox, text, prob) in result:
+            # print(f'{text}',end="")
+            # print(text+" ",end="")
 
         return jsonify({
             'status': 'Image received and processed successfully'

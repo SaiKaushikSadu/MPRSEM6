@@ -8,6 +8,7 @@ import Registration2 from './components/Registration/Registration2';
 import Registration3 from './components/Registration/Registration3';
 import Registration4 from './components/Registration/Registration4';
 import LiveLocation from './components/LiveLocation/LiveLocation';
+import RingerSilent from './components/RingerSilent/RingerSilent';
 
 
 const Stack = createStackNavigator();
@@ -15,7 +16,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LiveLocation">
+      <Stack.Navigator initialRouteName="Registration1">
         <Stack.Screen
           name="TimeTable"
           component={TimeTable}
@@ -44,6 +45,11 @@ export default function App() {
         <Stack.Screen
           name="LiveLocation"
           component={LiveLocation}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="RingerSilent"
+          component={RingerSilent}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

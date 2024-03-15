@@ -8,7 +8,30 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-const Registration2 = () => {
+const Registration2 = ({ route, navigation }) => {
+    const { fname, lname, email, phone, pass } = route.params;
+
+    const [college, setCollege] = useState("")
+    const [branch, setBranch] = useState("")
+    const [collegeEmail, setCollegeEmail] = useState("")
+    const [roll, setRoll] = useState("")
+    const [prn, setPrn] = useState("")
+
+    const next = () => {
+        navigation.navigate('Registration3', {
+            fname: fname,
+            lname: lname,
+            email: email,
+            phone: phone,
+            pass: pass,
+            college: college,
+            branch: branch,
+            collegeEmail: collegeEmail,
+            roll: roll,
+            prn: prn
+        });
+    }
+
     return (
         <>
 
@@ -19,8 +42,8 @@ const Registration2 = () => {
                         <Text style={styles.textSmall}>College Name</Text>
                         <TextInput
                             placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            value={college}
+                            onChangeText={(text) => setCollege(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -28,8 +51,8 @@ const Registration2 = () => {
                         <Text style={styles.textSmall}>Branch</Text>
                         <TextInput
                             placeholder="Enter your branch"
-                            // value={lname}
-                            // onChangeText={(text) => setLname(text)}
+                            value={branch}
+                            onChangeText={(text) => setBranch(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -37,8 +60,8 @@ const Registration2 = () => {
                         <Text style={styles.textSmall}>College Email</Text>
                         <TextInput
                             placeholder="Enter your college email"
-                            // value={email}
-                            // onChangeText={(text) => setEmail(text)}
+                            value={collegeEmail}
+                            onChangeText={(text) => setCollegeEmail(text)}
                             style={styles.textInput}
                             keyboardType="email-address"
                         />
@@ -47,17 +70,18 @@ const Registration2 = () => {
                         <Text style={styles.textSmall}>Roll No</Text>
                         <TextInput
                             placeholder="Enter your roll number"
-                            // value={phone}
-                            // onChangeText={(text) => setPhone(text)}
+                            value={roll}
+                            onChangeText={(text) => setRoll(text)}
                             style={styles.textInput}
+                            keyboardType="numeric"
                         />
                     </View>
                     <View>
                         <Text style={styles.textSmall}>PRN Number</Text>
                         <TextInput
                             placeholder="Enter your prn number"
-                            // value={phone}
-                            // onChangeText={(text) => setPhone(text)}
+                            value={prn}
+                            onChangeText={(text) => setPrn(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -65,13 +89,13 @@ const Registration2 = () => {
 
                         <TouchableOpacity
                             style={styles.btn}
-                            // onPress={() => navigation.goBack()}
+                            onPress={() => navigation.goBack()}
                         >
                             <Text style={styles.btnText}>Back</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.btn}
-                            // onPress={next}
+                            onPress={next}
                         >
                             <Text style={styles.btnText}>Next</Text>
                         </TouchableOpacity>

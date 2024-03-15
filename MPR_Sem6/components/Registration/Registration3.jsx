@@ -8,7 +8,42 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-const Registration3 = () => {
+const Registration3 = ({ route, navigation }) => {
+
+    const { fname, lname, email, phone, pass, college, branch, collegeEmail, roll, prn } = route.params;
+
+    const [sem1, setSem1] = useState("")
+    const [sem2, setSem2] = useState("")
+    const [sem3, setSem3] = useState("")
+    const [sem4, setSem4] = useState("")
+    const [sem5, setSem5] = useState("")
+    const [sem6, setSem6] = useState("")
+    const [sem7, setSem7] = useState("")
+    const [sem8, setSem8] = useState("")
+
+    const next = () => {
+        navigation.navigate('Registration4', {
+            fname: fname,
+            lname: lname,
+            email: email,
+            phone: phone,
+            pass: pass,
+            college: college,
+            branch: branch,
+            collegeEmail: collegeEmail,
+            roll: roll,
+            prn: prn,
+            sem1: sem1,
+            sem2: sem2,
+            sem3: sem3,
+            sem4: sem4,
+            sem5: sem5,
+            sem6: sem6,
+            sem7: sem7,
+            sem8: sem8,
+        });
+    }
+
     return (
         <>
 
@@ -18,85 +53,86 @@ const Registration3 = () => {
                     <View>
                         <Text style={styles.textSmall}>SEM 1</Text>
                         <TextInput
-                            placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            placeholder="Enter your SEM 1 CGPA"
+                            value={sem1}
+                            onChangeText={(text) => setSem1(text)}
                             style={styles.textInput}
                         />
                     </View>
                     <View>
                         <Text style={styles.textSmall}>SEM 2</Text>
                         <TextInput
-                            placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            placeholder="Enter your SEM 2 CGPA"
+                            value={sem2}
+                            onChangeText={(text) => setSem2(text)}
                             style={styles.textInput}
                         />
                     </View>
                     <View>
                         <Text style={styles.textSmall}>SEM 3</Text>
                         <TextInput
-                            placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            placeholder="Enter your SEM 3 CGPA"
+                            value={sem3}
+                            onChangeText={(text) => setSem3(text)}
                             style={styles.textInput}
                         />
                     </View>
                     <View>
                         <Text style={styles.textSmall}>SEM 4</Text>
                         <TextInput
-                            placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            placeholder="Enter your SEM 4 CGPA"
+                            value={sem4}
+                            onChangeText={(text) => setSem4(text)}
                             style={styles.textInput}
                         />
                     </View>
                     <View>
                         <Text style={styles.textSmall}>SEM 5</Text>
                         <TextInput
-                            placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            placeholder="Enter your SEM 5 CGPA"
+                            value={sem5}
+                            onChangeText={(text) => setSem5(text)}
                             style={styles.textInput}
                         />
                     </View>
                     <View>
                         <Text style={styles.textSmall}>SEM 6</Text>
                         <TextInput
-                            placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            placeholder="Enter your SEM 6 CGPA"
+                            value={sem6}
+                            onChangeText={(text) => setSem6(text)}
                             style={styles.textInput}
                         />
                     </View>
                     <View>
                         <Text style={styles.textSmall}>SEM 7</Text>
                         <TextInput
-                            placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            placeholder="Enter your SEM 7 CGPA"
+                            value={sem7}
+                            onChangeText={(text) => setSem7(text)}
                             style={styles.textInput}
                         />
                     </View>
                     <View>
                         <Text style={styles.textSmall}>SEM 8</Text>
                         <TextInput
-                            placeholder="Enter your college name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            placeholder="Enter your SEM 8 CGPA"
+                            value={sem8}
+                            onChangeText={(text) => setSem8(text)}
                             style={styles.textInput}
                         />
                     </View>
+
                     <View style={{ flexDirection: "row", marginTop: 20 }}>
                         <TouchableOpacity
                             style={styles.btn}
-                        // onPress={() => navigation.goBack()}
+                            onPress={() => navigation.goBack()}
                         >
                             <Text style={styles.btnText}>Back</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.btn}
-                        // onPress={next}
+                            onPress={next}
                         >
                             <Text style={styles.btnText}>Next</Text>
                         </TouchableOpacity>

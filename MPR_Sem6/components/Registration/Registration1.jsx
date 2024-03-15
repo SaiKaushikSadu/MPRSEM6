@@ -5,10 +5,33 @@ import {
     TextInput,
     TouchableOpacity,
     ScrollView,
+    Alert,
 } from "react-native";
 import React, { useState } from "react";
 
-const Registration1 = () => {
+const Registration1 = ({navigation}) => {
+    const [fname, setFname] = useState("")
+    const [lname, setLname] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [pass, setPass] = useState("")
+    const [conPass, setConPass] = useState("")
+
+    const next = () => {
+        if (conPass === pass) {
+            navigation.navigate('Registration2', {
+                fname: fname,
+                lname: lname,
+                email: email,
+                phone: phone,
+                pass: pass
+            });
+        }
+        else {
+            Alert.alert("Check Password")
+        }
+    }
+
     return (
         <>
 
@@ -19,8 +42,8 @@ const Registration1 = () => {
                         <Text style={styles.textSmall}>First Name</Text>
                         <TextInput
                             placeholder="Enter your first name"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            value={fname}
+                            onChangeText={(e) => setFname(e)}
                             style={styles.textInput}
                         />
                     </View>
@@ -28,8 +51,8 @@ const Registration1 = () => {
                         <Text style={styles.textSmall}>Last Name</Text>
                         <TextInput
                             placeholder="Enter your last name"
-                            // value={lname}
-                            // onChangeText={(text) => setLname(text)}
+                            value={lname}
+                            onChangeText={(text) => setLname(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -37,8 +60,8 @@ const Registration1 = () => {
                         <Text style={styles.textSmall}>Email</Text>
                         <TextInput
                             placeholder="Enter your email"
-                            // value={email}
-                            // onChangeText={(text) => setEmail(text)}
+                            value={email}
+                            onChangeText={(text) => setEmail(text)}
                             style={styles.textInput}
                             keyboardType="email-address"
                         />
@@ -47,8 +70,8 @@ const Registration1 = () => {
                         <Text style={styles.textSmall}>Phone</Text>
                         <TextInput
                             placeholder="Enter your phone number"
-                            // value={phone}
-                            // onChangeText={(text) => setPhone(text)}
+                            value={phone}
+                            onChangeText={(text) => setPhone(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -56,8 +79,8 @@ const Registration1 = () => {
                         <Text style={styles.textSmall}>Password</Text>
                         <TextInput
                             placeholder="Enter your password"
-                            // value={password}
-                            // onChangeText={(text) => setPassword(text)}
+                            value={pass}
+                            onChangeText={(text) => setPass(text)}
                             style={styles.textInput}
                             secureTextEntry
                         />
@@ -66,14 +89,14 @@ const Registration1 = () => {
                         <Text style={styles.textSmall}>Confirm Password</Text>
                         <TextInput
                             placeholder="Confirm password"
-                            // value={conPass}
-                            // onChangeText={(text) => setConPass(text)}
+                            value={conPass}
+                            onChangeText={(text) => setConPass(text)}
                             style={styles.textInput}
                             secureTextEntry
                         />
                     </View>
-                    <TouchableOpacity style={styles.btn}>
-                        <Text style={styles.btnText}>Sign Up</Text>
+                    <TouchableOpacity style={styles.btn} onPress={next}>
+                        <Text style={styles.btnText}>Next</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>

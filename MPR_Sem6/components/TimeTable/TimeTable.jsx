@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import * as ImagePicker from "expo-image-picker";
 import axios from 'react-native-axios';
+import { BASE_URL } from '../../global';
 
 const TimeTable = () => {
 
@@ -33,7 +34,7 @@ const TimeTable = () => {
       fromData={"image":bs64}
 
       const response = axios.post(
-        'http://192.168.0.107:3001/timetable',
+        `${BASE_URL}/timetable`,
         fromData,
         {
           headers: {

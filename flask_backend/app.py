@@ -3,8 +3,6 @@ from flask_cors import CORS
 from flask_pymongo import pymongo
 import easyocr
 import base64
-from PIL import Image
-import io
 from keys import MONGO_KEY
 from datetime import datetime
 
@@ -36,8 +34,14 @@ def signup():
     prn=body.get('prn')
     collegeemail=body.get('collegeemail')
 
-    cgpa=body.get('cgpa')
-    percentage=body.get('percentage')
+    sem1=body.get('sem1')
+    sem2=body.get('sem2')
+    sem3=body.get('sem3')
+    sem4=body.get('sem4')
+    sem5=body.get('sem5')
+    sem6=body.get('sem6')
+    sem7=body.get('sem7')
+    sem8=body.get('sem8')
 
     linkedin=body.get('linkedin')
     github=body.get('github')
@@ -60,8 +64,14 @@ def signup():
             "rollno": rollno,
             "rollno": prn,
             "collegeemail": collegeemail,
-            "cgpa": cgpa,
-            "percentage": percentage,
+            "sem1": sem1,
+            "sem2": sem2,
+            "sem3": sem3,
+            "sem4": sem4,
+            "sem5": sem5,
+            "sem6": sem6,
+            "sem7": sem7,
+            "sem8": sem8,
             "linkedin": linkedin,
             "github": github,
             "codechef": codechef,

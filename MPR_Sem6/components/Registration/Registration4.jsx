@@ -4,12 +4,70 @@ import {
     StyleSheet,
     TextInput,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    Alert
 } from "react-native";
 import React, { useState } from "react";
+import axios from 'react-native-axios';
+import { BASE_URL } from "../../global.js";
 
 
-const Registration4 = () => {
+const Registration4 = ({ route }) => {
+
+    const { fname, lname, email, phone, pass, college, branch, collegeEmail, roll, prn, sem1, sem2, sem3, sem4, sem5, sem6, sem7, sem8 } = route.params;
+
+    const [github, setGithub] = useState("")
+    const [linkedin, setLinkedin] = useState("")
+    const [cf, setcf] = useState("")
+    const [cc, setcc] = useState("")
+    const [leet, setLeet] = useState("")
+    const [discord, setDiscord] = useState("")
+
+    const submit = async () => { // Define submit as an asynchronous function
+        const fromData = {
+            "fname": fname,
+            "lname": lname,
+            "email": email,
+            "phone": phone,
+            "password": pass,
+            "collegename": college,
+            "branch": branch,
+            "rollno": roll,
+            "prn": prn,
+            "collegeemail": collegeEmail,
+            "sem1": sem1,
+            "sem2": sem2,
+            "sem3": sem3,
+            "sem4": sem4,
+            "sem5": sem5,
+            "sem6": sem6,
+            "sem7": sem7,
+            "sem8": sem8,
+            "github": github,
+            "linkedin": linkedin,
+            "codechef": cc,
+            "codeforces": cf,
+            "leetcode": leet,
+            "discord": discord
+        };
+
+        try {
+            const response = await axios.post(
+                `${BASE_URL}/signup`,
+                fromData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+            
+            Alert.alert("Successful",response.data.inserted_id);
+        } catch (error) {
+            Alert.alert('Error occurred:', error.message);
+        }
+    };
+
     return (
         <>
 
@@ -20,8 +78,8 @@ const Registration4 = () => {
                         <Text style={styles.textSmall}>GitHub Link</Text>
                         <TextInput
                             placeholder="Enter your Github Link"
-                            // value={fname}
-                            // onChangeText={(text) => setFname(text)}
+                            value={github}
+                            onChangeText={(text) => setGithub(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -29,8 +87,8 @@ const Registration4 = () => {
                         <Text style={styles.textSmall}>LinkedIn Link</Text>
                         <TextInput
                             placeholder="Enter your LinkedIn Link"
-                            // value={lname}
-                            // onChangeText={(text) => setLname(text)}
+                            value={linkedin}
+                            onChangeText={(text) => setLinkedin(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -38,8 +96,8 @@ const Registration4 = () => {
                         <Text style={styles.textSmall}>Codechef Link</Text>
                         <TextInput
                             placeholder="Enter your CodeChef Link"
-                            // value={email}
-                            // onChangeText={(text) => setEmail(text)}
+                            value={cc}
+                            onChangeText={(text) => setcc(text)}
                             style={styles.textInput}
                             keyboardType="email-address"
                         />
@@ -48,8 +106,8 @@ const Registration4 = () => {
                         <Text style={styles.textSmall}>CodeForces Link</Text>
                         <TextInput
                             placeholder="Enter your Codeforces Link"
-                            // value={phone}
-                            // onChangeText={(text) => setPhone(text)}
+                            value={cf}
+                            onChangeText={(text) => setcf(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -57,8 +115,8 @@ const Registration4 = () => {
                         <Text style={styles.textSmall}>Leetcode Link</Text>
                         <TextInput
                             placeholder="Enter your Leetcode Link"
-                            // value={phone}
-                            // onChangeText={(text) => setPhone(text)}
+                            value={leet}
+                            onChangeText={(text) => setLeet(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -66,8 +124,8 @@ const Registration4 = () => {
                         <Text style={styles.textSmall}>Discord Link</Text>
                         <TextInput
                             placeholder="Enter your Discord Link"
-                            // value={phone}
-                            // onChangeText={(text) => setPhone(text)}
+                            value={discord}
+                            onChangeText={(text) => setDiscord(text)}
                             style={styles.textInput}
                         />
                     </View>
@@ -75,13 +133,13 @@ const Registration4 = () => {
 
                         <TouchableOpacity
                             style={styles.btn}
-                        // onPress={() => navigation.goBack()}
+                            onPress={() => navigation.goBack()}
                         >
                             <Text style={styles.btnText}>Back</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.btn}
-                        // onPress={next}
+                            onPress={submit}
                         >
                             <Text style={styles.btnText}>Submit</Text>
                         </TouchableOpacity>

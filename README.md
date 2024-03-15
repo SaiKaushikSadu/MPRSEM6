@@ -3,7 +3,7 @@ React Native App - Personalized app for student
 
 #To start Flask app <br />
 Go to the flask directory  <br /> 
-#to activate venv run <br />
+#to activate venv run the below command <br />
 venv\Scripts\activate.ps1 
 run python app.py <br />
 

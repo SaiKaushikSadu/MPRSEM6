@@ -9,6 +9,11 @@ import Registration3 from './components/Registration/Registration3';
 import Registration4 from './components/Registration/Registration4';
 import LiveLocation from './components/LiveLocation/LiveLocation';
 import RingerSilent from './components/RingerSilent/RingerSilent';
+import Login from './pages/Login/Login';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import Cgpa from './pages/ProfilePage/Cgpa';
+import ProfileLinks from './pages/ProfilePage/ProfileLinks';
+import Scheduler from './pages/Scheduler/Scheduler';
 
 
 const Stack = createStackNavigator();
@@ -16,10 +21,35 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Registration1">
+      <Stack.Navigator initialRouteName="TimeTable">
         <Stack.Screen
           name="TimeTable"
           component={TimeTable}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Scheduler"
+          component={Scheduler}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfilePage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Cgpa"
+          component={Cgpa}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ProfileLinks"
+          component={ProfileLinks}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
           options={{ headerShown: false }}
         />
         <Stack.Screen

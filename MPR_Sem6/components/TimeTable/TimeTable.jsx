@@ -3,8 +3,12 @@ import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-n
 import * as ImagePicker from "expo-image-picker";
 import axios from 'react-native-axios';
 import { BASE_URL } from '../../global';
+import { useNavigation } from '@react-navigation/native';
+
 
 const TimeTable = () => {
+
+  const navigation = useNavigation()
 
   const [image, setImage] = useState(null);
   const [bs64, setbs64] = useState(null);
@@ -42,6 +46,8 @@ const TimeTable = () => {
           },
         }
       );
+
+      navigation.navigate("Scheduler")
     }
     catch (err) {
       console.log(err)

@@ -5,6 +5,7 @@ import easyocr
 import base64
 from keys import MONGO_KEY
 from datetime import datetime
+from bson.objectid import ObjectId
 
 app=Flask(__name__)
 
@@ -62,7 +63,7 @@ def signup():
             "collegename": collegename,
             "branch": branch,
             "rollno": rollno,
-            "rollno": prn,
+            "prn": prn,
             "collegeemail": collegeemail,
             "sem1": sem1,
             "sem2": sem2,
@@ -88,6 +89,93 @@ def signup():
         return jsonify({
             'status': 'Error occurred'
         })
+    
+
+@app.route("/login", methods=['POST'])
+def login():
+    try:
+        body=request.json
+        email=body.get('email')
+        password=body.get('password')
+        # print(phone)
+
+        result_student = db['student'].find_one({'email': email})
+
+        if (result_student['password']==password):
+            id = str(result_student['_id'])
+            return jsonify({
+                'id':id,
+                'status':'userFound'
+            })
+        else:
+            return jsonify({
+                'status':'userNotFound'
+            })
+    except Exception as e:
+        print(e)
+        return jsonify({
+            'status': 'Error occurred'
+        })
+
+# Get individual Medical Personnel Details, CURRENTLY NOT REQD
+@app.route("/getStudent/<id>",methods=['GET'])
+def get_one_stud(id):
+    # try:
+        id_obj = ObjectId(id)
+        stud=db['student'].find_one({'_id': id_obj})
+        fname=stud['fname']
+        lname=stud['lname']
+        phone=stud['phone']
+        email=stud['email']
+        collegename=stud['collegename']
+        branch=stud['branch']
+        rollno=stud['rollno']
+        prn=stud['prn']
+        collegeemail=stud['collegeemail']
+        sem1=stud['sem1']
+        sem2=stud['sem2']
+        sem3=stud['sem3']
+        sem4=stud['sem4']
+        sem5=stud['sem5']
+        sem6=stud['sem6']
+        sem7=stud['sem7']
+        sem8=stud['sem8']
+        github=stud['github']
+        linkedin=stud['linkedin']
+        codechef=stud['codechef']
+        codeforces=stud['codeforces']
+        leetcode=stud['leetcode']
+        discord=stud['discord']
+        
+        return jsonify({
+            "fname":fname,
+            "lname":lname,
+            "phone":phone,
+            "email":email,
+            "collegename": collegename,
+            "branch": branch,
+            "rollno": rollno,
+            "prn": prn,
+            "collegeemail": collegeemail,
+            "sem1": sem1,
+            "sem2": sem2,
+            "sem3": sem3,
+            "sem4": sem4,
+            "sem5": sem5,
+            "sem6": sem6,
+            "sem7": sem7,
+            "sem8": sem8,
+            "linkedin": linkedin,
+            "github": github,
+            "codechef": codechef,
+            "codeforces": codeforces,
+            "leetcode": leetcode,
+            "discord": discord
+        })
+    # except:
+    #     return jsonify({
+    #         'status':'Student not found'
+    #     })
 
 @app.route("/timetable", methods=['POST'])
 def timetable():

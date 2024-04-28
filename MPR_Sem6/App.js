@@ -14,6 +14,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Cgpa from './pages/ProfilePage/Cgpa';
 import ProfileLinks from './pages/ProfilePage/ProfileLinks';
 import Scheduler from './pages/Scheduler/Scheduler';
+import PushNotifications from './components/PushNotifications/PushNotifications';
 
 
 const Stack = createStackNavigator();
@@ -21,7 +22,12 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="TimeTable">
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen
+          name="PushNotification"
+          component={PushNotifications}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="TimeTable"
           component={TimeTable}

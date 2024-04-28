@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "MPR_Sem6",
-    "slug": "MPR_Sem6",
+    "slug": "mprsem6",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -45,6 +45,12 @@
           "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "b9b37ab2-d745-4af9-9af0-701bc847fa6b"
+      }
+    },
+    "owner": "saikaushiksadu"
   }
 }

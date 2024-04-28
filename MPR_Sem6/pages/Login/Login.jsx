@@ -107,7 +107,7 @@ const Login = () => {
 
             await AsyncStorage.setItem('userId', (response.data.id));
 
-            Alert.alert("Successful", response.data.id);
+            Alert.alert("Successful", response.data.email);
             pushnotify()
             navigation.navigate('Profile')
         } catch (error) {
@@ -202,17 +202,6 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         padding: 20,
     },
-    progreeBar: {
-        marginTop: 20,
-        padding: 20,
-    },
-    titleCont: {
-        padding: 20,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-    },
     textInput: {
         borderWidth: 0.5,
         borderColor: "#d3d3d3",
@@ -249,24 +238,5 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 18,
         textAlign: "center",
-    },
-    radioGroup: {
-        flexDirection: "column",
-        alignItems: "flex-start",
-    },
-    radioButton: {
-        flexDirection: "row",
-        alignItems: "center",
-        marginVertical: 8,
-    },
-    radioText: {
-        marginLeft: 8,
-    },
-    radioDot: {
-        width: 16,
-        height: 16,
-        borderRadius: 8,
-        backgroundColor: "rgb(110, 142, 251)",
-        marginLeft: 8,
     },
 });

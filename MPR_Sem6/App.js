@@ -15,17 +15,58 @@ import Cgpa from './pages/ProfilePage/Cgpa';
 import ProfileLinks from './pages/ProfilePage/ProfileLinks';
 import Scheduler from './pages/Scheduler/Scheduler';
 import PushNotifications from './components/PushNotifications/PushNotifications';
-
+import Roadmaps from './pages/Roadmaps/Roadmaps';
+import Front from './pages/Roadmaps/Front';
+import Back from './pages/Roadmaps/Back';
+import Block from './pages/Roadmaps/Block';
+import Ml from "./pages/Roadmaps/Ml";
+import Devops from "./pages/Roadmaps/Devops"
+import DataSci from "./pages/Roadmaps/DataSci"
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Registration1">
+      <Stack.Navigator initialRouteName="Roadmaps">
         <Stack.Screen
           name="PushNotification"
           component={PushNotifications}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Front"
+          component={Front}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Back"
+          component={Back}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Block"
+          component={Block}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Ml"
+          component={Ml}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Devops"
+          component={Devops}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DataSci"
+          component={DataSci}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Roadmaps"
+          component={Roadmaps}
           options={{ headerShown: false }}
         />
         <Stack.Screen

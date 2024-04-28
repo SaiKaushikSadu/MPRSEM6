@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
         marginTop: 40,
         backgroundColor: "rgb(110, 142, 251)",
         borderRadius: 10,
-        padding: 20
+        padding: 30
     },
     LowerSectionTextContainer: {
         flexDirection: "row",

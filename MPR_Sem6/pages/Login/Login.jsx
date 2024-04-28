@@ -147,6 +147,10 @@ const Login = () => {
                     <TouchableOpacity style={styles.btn} onPress={submit}>
                         <Text style={styles.btnText}>Login</Text>
                     </TouchableOpacity>
+                    <Text style={styles.textNew}>New to this App?</Text>
+                    <TouchableOpacity style={styles.btn} onPress={()=>{navigation.navigate("Registration1")}}>
+                        <Text style={styles.btnText}>Sign Up</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
 
@@ -178,6 +182,13 @@ const styles = StyleSheet.create({
     textSmall: {
         fontSize: 16,
         fontWeight: "600",
+    },
+    textNew: {
+        fontSize: 16,
+        fontWeight: "600",
+        marginBottom:5,
+        marginLeft:3,
+        marginTop:5
     },
     textLarge: {
         fontSize: 32,
@@ -223,6 +234,7 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         borderRadius: 5,
         marginRight: 10,
+        marginBottom:10
     },
     btnN: {
         backgroundColor: "rgb(110, 142, 251)",

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View ,Platform} from 'react-native'
+import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Platform, Image } from 'react-native'
 import axios from 'react-native-axios';
 import { BASE_URL } from "../../global.js";
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
+import LoginImage from "../../assets/login.png";
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
@@ -120,6 +121,9 @@ const Login = () => {
             <ScrollView>
                 <View style={styles.Lcontainer}>
                     <Text style={styles.textLarge}>Login</Text>
+                    <View style={styles.container}>
+                        <Image source={LoginImage} style={styles.loginImg} />
+                    </View>
                     <View>
                         <Text style={styles.textSmall}>Email</Text>
                         <TextInput
@@ -158,6 +162,18 @@ const styles = StyleSheet.create({
         alignContent: "center",
         padding: 20,
         paddingTop: 80,
+        backgroundColor: "white",
+        height:950
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom:30
+    },
+    loginImg: {
+        width: 230, // Adjust this based on your image size
+        height: 300, // Adjust this based on your image size
     },
     textSmall: {
         fontSize: 16,
@@ -167,7 +183,8 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: "600",
         textAlign: "center",
-        marginBottom: 20,
+        marginBottom: 30,
+        marginTop: 30,
     },
     text: {
         fontSize: 16,

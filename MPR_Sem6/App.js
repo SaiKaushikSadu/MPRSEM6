@@ -22,7 +22,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Registration1">
         <Stack.Screen
           name="PushNotification"
           component={PushNotifications}

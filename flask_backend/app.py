@@ -105,7 +105,8 @@ def login():
             id = str(result_student['_id'])
             return jsonify({
                 'id':id,
-                'status':'userFound'
+                'status':'userFound',
+                "email":email
             })
         else:
             return jsonify({

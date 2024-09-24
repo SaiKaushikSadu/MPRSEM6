@@ -6,6 +6,10 @@ import base64
 from keys import MONGO_KEY
 from datetime import datetime
 from bson.objectid import ObjectId
+import google.generativeai as genai
+
+model = genai.GenerativeModel('gemini-pro')
+genai.configure(api_key='AIzaSyBP42N2i2nCeu-1KnDG_Vm7uGJjjmNk76s')
 
 app=Flask(__name__)
 
@@ -206,6 +210,26 @@ def timetable():
         return jsonify({
             'status': 'Error occurred while processing the image'
         })
+
+@app.route("/chatbot", methods=['POST'])
+def chatbot():
+    if request.method == 'POST':
+        try:
+            body=request.json
+            prompt=body.get('prompt')
+            question = prompt
+
+            response = model.generate_content(question)
+
+            if response.text:
+                 return jsonify({
+                    'message': response.text
+                })
+        except Exception as e:
+            print(e)
+            return jsonify({
+                    'message': "Error"
+                })
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=3001)

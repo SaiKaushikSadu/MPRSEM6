@@ -62,22 +62,22 @@ const Middle = () => {
                 <View style={styles.imageContainer}>
                     <Image style={styles.image} source={require("../../assets/user.jpeg")} />
                     <Text style={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
-                        {stud.fname} {stud.lname}
+                        John Doe
                     </Text>
                     <Text style={{ fontSize: 18, color: "black", fontWeight: "500" }}>
-                        {stud.email}
+                        doe@tsec.edu
                     </Text>
                 </View>
 
                 <View style={styles.middleSectionTextContainer}>
-                    <Text style={styles.dataText}>First Name : {stud.fname}</Text>
-                    <Text style={styles.dataText}>Last Name : {stud.lname}</Text>
-                    <Text style={styles.dataText}>Email : {stud.email}</Text>
-                    <Text style={styles.dataText}>College Name : {stud.collegename}</Text>
-                    <Text style={styles.dataText}>Branch : {stud.branch}</Text>
-                    <Text style={styles.dataText}>Roll no : {stud.rollno}</Text>
-                    <Text style={styles.dataText}>PRN no : {stud.prn}</Text>
-                    <Text style={styles.dataText}>College Email : {stud.collegeemail}</Text>
+                    <Text style={styles.dataText}>First Name : John</Text>
+                    <Text style={styles.dataText}>Last Name : Doe</Text>
+                    <Text style={styles.dataText}>Email : johndoe@example.com</Text>
+                    <Text style={styles.dataText}>College Name : TSEC</Text>
+                    <Text style={styles.dataText}>Branch : Computer</Text>
+                    <Text style={styles.dataText}>Roll no : 2103153</Text>
+                    <Text style={styles.dataText}>PRN no : 382642792</Text>
+                    <Text style={styles.dataText}>College Email : doe@tsec.edu</Text>
                     <TouchableOpacity style={styles.btn} onPress={navicgpa}>
                         <Text style={styles.btnText}>View Semester CGPA</Text>
                     </TouchableOpacity>

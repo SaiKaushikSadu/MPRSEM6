@@ -89,30 +89,31 @@ const Login = () => {
     }
 
     const submit = async () => {
+        
         const fromData = {
             "email": email,
             "password": pass
         }
 
-        try {
-            const response = await axios.post(
-                `${BASE_URL}/login`,
-                fromData,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            );
+        // try {
+            // const response = await axios.post(
+            //     `${BASE_URL}/login`,
+            //     fromData,
+            //     {
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //         },
+            //     }
+            // );
 
-            await AsyncStorage.setItem('userId', (response.data.id));
+            // await AsyncStorage.setItem('userId', (response.data.id));
 
-            Alert.alert("Successful", response.data.email);
+            // Alert.alert("Successful", response.data.email);
             pushnotify()
             navigation.navigate('Profile')
-        } catch (error) {
-            Alert.alert('Error occurred:', error.message);
-        }
+        // } catch (error) {
+        //     Alert.alert('Error occurred:', error.message);
+        // }
     }
 
     return (

@@ -22,13 +22,19 @@ import Block from './pages/Roadmaps/Block';
 import Ml from "./pages/Roadmaps/Ml";
 import Devops from "./pages/Roadmaps/Devops"
 import DataSci from "./pages/Roadmaps/DataSci"
+import DocumentPickerr from './components/DocumentPicker/DocumentPicker';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Roadmaps">
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen
+          name="Pdf"
+          component={DocumentPickerr}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="PushNotification"
           component={PushNotifications}
